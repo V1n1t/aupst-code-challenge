@@ -106,8 +106,6 @@ public without sharing class QueryUtils {
 			if(order!=null && order!='')
 				query += ' '+order;
 
-			System.debug('!@#$% Generated query for ' + objectName + '   |   ' + query);
-
 		}
 
 		return query;
@@ -135,9 +133,7 @@ public without sharing class QueryUtils {
 					filterValue =  '\''+filter.value.get(0)+'\'';
 				else if(filter.value.size()>1) {
 					for(String value : filter.value) {
-						System.debug('!@#$% Current value : ' + value);
 						filterValue = filterValue + '\''+value+'\',';
-						System.debug('!@#$% Current filterValue : ' + filterValue);
 					}
 					filterValue = filterValue.substring(0, filterValue.length()-1);
 				}
@@ -155,7 +151,6 @@ public without sharing class QueryUtils {
 			if(order!=null && order!='')
 				query += ' '+order;
 
-			System.debug('!@#$% Generated query for ' + objectName + '   |   ' + query);
 		}
 
 		return query;

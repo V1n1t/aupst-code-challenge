@@ -6,10 +6,7 @@ public without sharing class MockUtility {
 
     public static Map<String, String> getMock(String name) {
 
-        Map<String,String> filters = new Map<String, String>();
-        filters.put('MasterLabel', name);
-        Mock_Configuration__mdt mock = (Mock_Configuration__mdt) QueryUtils.getRecord('Mock_Configuration__mdt', filters, null);
-        System.debug('!@#$% mock : ' + mock);
+        Mock_Configuration__mdt mock = [SELECT Id, MasterLabel, Mock_Url__c, Enable__c FROM Mock_Configuration__mdt WHERE MasterLabel =:name LIMIT 1];
 
         Map<String,String> mockConfig = new Map<String, String>();
         if(mock != null) {

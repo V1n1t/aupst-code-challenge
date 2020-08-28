@@ -7,11 +7,16 @@ public abstract class HTTPUtility {
     /**
     * @description : method to create basic HTTPRequest
     **/
-    public static HttpRequest createHTTPRequest(String endPointURL, String method, Integer timeout){
+    public static HttpRequest createHTTPRequest(String namedCredential, String method, Integer timeout) {
         Httprequest request = new HttpRequest();
-        request.setEndpoint(endPointURL);
+        request.setEndpoint('callout:'+namedCredential);
         request.setMethod(method);
         request.setTimeout(timeout);
+        return request;
+    }
+
+    public static HttpRequest setContentType(HttpRequest request, String contentType) {
+        request.setHeader('Content-Type', contentType);
         return request;
     }
 }
